@@ -9,10 +9,10 @@ const hubspotClient = new hubspot.Client({
 
 export default async (req) => {
     const body = await useBody(req)
-    const { firstname, lastname } = body
+    const { firstname, email } = body
     const contactObj = {
         properties: {
-            firstname, lastname
+            firstname, email
         },
     };
     const createContactResponse = await hubspotClient.crm.contacts.basicApi.create(contactObj);
